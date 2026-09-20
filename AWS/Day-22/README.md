@@ -22,15 +22,11 @@ The requirements were:
 
 ## The Problem
 
-An EC2 instance needs a secure way for administrators to connect
-remotely.
+An EC2 instance needs a secure way for administrators to connect remotely.
 
-Instead of using a password, SSH can authenticate users using
-public-key cryptography.
+Instead of using a password, SSH can authenticate users using public-key cryptography.
 
-For this lab, the private SSH key remains on the `aws-client`
-host while the corresponding public key is installed on the
-EC2 instance.
+For this lab, the private SSH key remains on the `aws-client` host while the corresponding public key is installed on the EC2 instance.
 
 ---
 
@@ -41,18 +37,13 @@ We used an SSH key pair:
 - `id_rsa` : private key
 - `id_rsa.pub` : public key
 
-The private key remains on the `aws-client` host and must be kept
-secret.
+The private key remains on the `aws-client` host and must be kept secret.
 
-The public key is installed on the EC2 instance in the user's
-SSH `authorized_keys` file.
+The public key is installed on the EC2 instance in the user's SSH `authorized_keys` file.
 
-The EC2 instance was launched with the `id_rsa` key pair, allowing
-the initial `ec2-user` account to authenticate using SSH.
+The EC2 instance was launched with the `id_rsa` key pair, allowing the initial `ec2-user` account to authenticate using SSH.
 
-The public key was then added to the `root` user's
-`authorized_keys` file so that root could also authenticate
-without a password.
+The public key was then added to the `root` user's `authorized_keys` file so that root could also authenticate without a password.
 
 ---
 
@@ -137,13 +128,11 @@ SSH	TCP: port 22
 
 The id_rsa key pair was selected during instance launch.
 
-This is important because the EC2 key pair is used to place
-the public key into the initial user's SSH configuration.
+This is important because the EC2 key pair is used to place the public key into the initial user's SSH configuration.
 
 Step 5: Connect using the initial EC2 user
 
-After the instance reached the Running state and passed its
-status checks, its public IP address was obtained.
+After the instance reached the Running state and passed its status checks, its public IP address was obtained.
 
 SSH was used from aws-client:
 
@@ -155,14 +144,11 @@ ssh → starts an SSH connection
 ec2-user → initial Amazon Linux user
 <EC2-IP> → public IPv4 address of the EC2 instance
 
-At this point, the private key remains on aws-client while
-SSH uses it to authenticate against the public key installed
-on the EC2 instance.
+At this point, the private key remains on aws-client while SSH uses it to authenticate against the public key installed on the EC2 instance.
 
 Step 6: Configure SSH access for root
 
-Once connected as ec2-user, the root SSH directory was created:
-sudo mkdir -p /root/.ssh
+Once connected as ec2-user, the root SSH directory was created: sudo mkdir -p /root/.ssh
 
 Command breakdown
 sudo → execute with administrator privileges
@@ -226,8 +212,7 @@ From aws-client:
 
 ssh -i /root/.ssh/id_rsa root@<EC2-IP>
 
-If successful, the connection is established without entering
-an account password.
+If successful, the connection is established without entering an account password.
 
 Verification
 
@@ -252,9 +237,7 @@ Manage applications
 Perform system administration
 Diagnose networking problems
 
-However, production environments often restrict direct SSH access
-and may use services such as AWS Systems Manager Session Manager
-to reduce exposure of SSH to the internet.
+However, production environments often restrict direct SSH access and may use services such as AWS Systems Manager Session Manager to reduce exposure of SSH to the internet.
 
 Key Concepts Learned
 SSH
@@ -281,6 +264,4 @@ The public key must be trusted by the EC2 instance, while the
 private key stays securely on the client.
 
 I also learned that SSH access depends on more than just the key:
-network access through port 22, the correct Linux username,
-the key pair configuration, and correct file permissions all
-matter.
+The network access through port 22, the correct Linux username, the key pair configuration, and correct file permissions all matter.
