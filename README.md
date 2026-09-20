@@ -51,7 +51,7 @@ Each lab is documented with:
 
 | Section | Progress |
 |---|---:|
-| AWS | 0 / 50 |
+| AWS | 25 / 50 |
 | Azure | 0 / 50 |
 | **Total** | **0 / 100** |
 
