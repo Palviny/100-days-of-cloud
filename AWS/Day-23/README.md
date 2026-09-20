@@ -68,11 +68,9 @@ aws s3 sync \
   s3://devops-sync-778310932 \
   --region us-east-1
 
-sync compares the source and destination and transfers the
-objects that need to be synchronized.
+sync compares the source and destination and transfers the objects that need to be synchronized.
 
-This is more practical than copying files individually,
-especially when a bucket contains many objects.
+This is more practical than copying files individually, especially when a bucket contains many objects.
 
 Verification
 
@@ -96,9 +94,7 @@ aws s3 sync \
   --dryrun \
   --region us-east-1
 
---dryrun shows what AWS CLI would synchronize without actually
-making changes. An empty result indicates that no further
-synchronization is required.
+--dryrun shows what AWS CLI would synchronize without actually making changes. An empty result indicates that no further synchronization is required.
 
 Real-World Relevance
 
@@ -113,11 +109,8 @@ Cloud storage reorganizations
 
 Key Takeaway
 
-The important lesson was that data migration does not end when
-the copy command finishes.
+The important lesson was that data migration does not end when the copy command finishes.
 
-A successful migration should be followed by verification to
-confirm that the destination contains the expected data.
+A successful migration should be followed by verification to confirm that the destination contains the expected data.
 
-aws s3 sync provides an efficient way to automate S3 data
-migration while reducing the risk of manually missing objects.
+aws s3 sync provides an efficient way to automate S3 data migration while reducing the risk of manually missing objects.
