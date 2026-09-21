@@ -5,6 +5,12 @@ My hands-on journey through the 100 Days of Cloud challenge.
 This repository documents what I learn while completing practical
 cloud labs across AWS and Azure.
 
+<img width="1115" height="842" alt="image" src="https://github.com/user-attachments/assets/1a718f6d-2808-4d95-88a6-1c187551f50f" />
+
+<img width="1096" height="841" alt="image" src="https://github.com/user-attachments/assets/2dfa8b9e-688a-41e1-a02e-a5fcc51433c0" />
+
+
+
 ## Goals
 
 - Build practical cloud skills through hands-on labs
@@ -51,9 +57,9 @@ Each lab is documented with:
 
 | Section | Progress |
 |---|---:|
-| AWS | 25 / 50 |
+| AWS | 26 / 50 |
 | Azure | 0 / 50 |
-| **Total** | **0 / 100** |
+| **Total** | **26 / 100** |
 
 ## Why I'm Doing This
 
