@@ -34,37 +34,18 @@ EC2 instances later.
 We created an **Application Load Balancer**, a **target group**, and
 a dedicated security group.
 
-The traffic flow is:
-
-```text
-Internet
-   │
-   │ HTTP :80
-   ▼
-devops-alb
-   │
-   ▼
-devops-tg
-   │
-   ▼
-devops-ec2
-   │
-   ▼
-Nginx :80
 
 ## Implementation
 
 1. Create the ALB security group
 
-Created:
+Created: devops-sg
 
-devops-sg
-
-Inbound rule:
-
-HTTP | TCP | 80 | 0.0.0.0/0
+Inbound ruleHTTP | TCP | 80 | 0.0.0.0/0
 
 This allows public HTTP traffic to reach the load balancer.
+
+<img width="1674" height="241" alt="alb-active" src="https://github.com/user-attachments/assets/ae08e7e9-a053-40e6-8233-c8443d31fc66" />
 
 2. Create the target group
 Created: devops-tg
@@ -76,9 +57,10 @@ Protocol: HTTP
 Port: 80
 Health check: HTTP /
 
-The existing devops-ec2 instance was registered as a target.
+The existing devops-ec2 instance was registered as a target. A target group tells the ALB which backend resources should receive traffic.
 
-A target group tells the ALB which backend resources should receive traffic.
+<img width="1660" height="397" alt="target-healthy" src="https://github.com/user-attachments/assets/0d663930-0bcc-4cfe-9806-e65519d48022" />
+
 
 3. Create the Application Load Balancer
 
@@ -114,6 +96,9 @@ After adding the appropriate rule: devops-sg → EC2 port 80
 the target became: Healthy
 
 Finally, the ALB DNS name was opened in a browser and successfully returned the Nginx welcome page.
+
+<img width="1485" height="316" alt="nginx-through-alb (1)" src="https://github.com/user-attachments/assets/0cd98408-4576-4859-8ff8-946faae0d8d6" />
+
 
 This confirmed the complete traffic path was working.
 
