@@ -33,6 +33,9 @@ I selected **Create** and configured the SSH key with the required values:
 I reviewed the configuration and created the SSH key pair.
 <img width="1908" height="116" alt="image" src="https://github.com/user-attachments/assets/09c05e67-3477-4924-83b7-ef747d33581a" />
 
+<img width="687" height="349" alt="image" src="https://github.com/user-attachments/assets/53910954-a45d-48c5-bb02-2bde24d71770" />
+
+
 ## Security Notes
 
 The private SSH key was not uploaded to GitHub or included in this repository.
